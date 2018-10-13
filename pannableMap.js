@@ -1,4 +1,4 @@
 function setMapViewBounds(map) {
-    var bbox = new H.geo.Rect(42.3736, -71.0751, 42.3472, -71.0408);
+    var bbox = new H.geo.Rect(32.82, -117.076914, 32.70, -117.076914);
     map.setViewBounds(bbox);
 }
