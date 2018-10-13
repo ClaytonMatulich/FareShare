@@ -6,8 +6,8 @@ function calculateRouteFromAtoB (platform) {
         representation: 'display',
         routeattributes : 'waypoints,summary,shape,legs',
         maneuverattributes: 'direction,action',
-        waypoint0: '52.5160,13.3779', // Brandenburg Gate
-        waypoint1: '52.5206,13.3862'  // Friedrichstraße Railway Station
+        waypoint0: '32.7757,-117.0719', // Brandenburg Gate
+        waypoint1: '32.8801,-117.2340'  // Friedrichstraße Railway Station
       };
   
   
