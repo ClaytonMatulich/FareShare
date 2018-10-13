@@ -1,4 +1,13 @@
 
+
+var to = '32.7757,-117.0719'
+var from = '32.8801,-117.2340'
+
+function drawMap(to,from){
+    calculateRouteFromAtoB (platform);
+}
+
+
 function calculateRouteFromAtoB (platform) {
     var router = platform.getRoutingService(),
       routeRequestParams = {
@@ -6,8 +15,8 @@ function calculateRouteFromAtoB (platform) {
         representation: 'display',
         routeattributes : 'waypoints,summary,shape,legs',
         maneuverattributes: 'direction,action',
-        waypoint0: '32.7757,-117.0719', // Brandenburg Gate
-        waypoint1: '32.8801,-117.2340'  // Friedrichstraße Railway Station
+        waypoint0: to, // Brandenburg Gate
+        waypoint1: from  // Friedrichstraße Railway Station
       };
   
   
@@ -263,4 +272,4 @@ function calculateRouteFromAtoB (platform) {
   }
   
   // Now use the map as required...
-  calculateRouteFromAtoB (platform);
+  
