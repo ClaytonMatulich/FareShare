@@ -15,8 +15,8 @@ function calculateRouteFromAtoB (platform) {
         representation: 'display',
         routeattributes : 'waypoints,summary,shape,legs',
         maneuverattributes: 'direction,action',
-        waypoint0: to, // Brandenburg Gate
-        waypoint1: from  // Friedrichstraße Railway Station
+        waypoint0: '32.7757,-117.0719', // SDSU
+        waypoint1: '38.4404,-122.7141'  // Santa Rosa
       };
   
   
@@ -64,7 +64,7 @@ function calculateRouteFromAtoB (platform) {
    */
   
   // set up containers for the map  + panel
-  var mapContainer = document.getElementById('landing-map-container'),
+  var mapContainer = document.getElementById('map-container'),
     routeInstructionsContainer = document.getElementById('panel');
   
   //Step 1: initialize communication with the platform
@@ -82,7 +82,7 @@ function calculateRouteFromAtoB (platform) {
   //Step 2: initialize a map - this map is centered over Berlin
   var map = new H.Map(mapContainer,
     defaultLayers.normal.map,{
-    center: {lat:52.5160, lng:13.3779},
+    center: {lat:32.7757, lng:-117.0719},
     zoom: 13,
     pixelRatio: pixelRatio
   });
@@ -272,4 +272,4 @@ function calculateRouteFromAtoB (platform) {
   }
   
   // Now use the map as required...
-  
+  calculateRouteFromAtoB (platform);
