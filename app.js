@@ -60,8 +60,8 @@ function calculateRouteFromAtoB (platform) {
   
   //Step 1: initialize communication with the platform
   var platform = new H.service.Platform({
-    app_id: 'devportal-demo-20180625',
-    app_code: '9v2BkviRwi9Ot26kp2IysQ',
+    app_id: '7SDSJvoRdV0v2xZ0BrAV',
+    app_code: 'WPhUiT2gtYoIBPnzf0VoQg',
     useHTTPS: true
   });
   var pixelRatio = window.devicePixelRatio || 1;
