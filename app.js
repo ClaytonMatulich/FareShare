@@ -10,10 +10,11 @@ var defaultLayers = platform.createDefaultLayers();
 var landingMap = new H.Map(
     document.getElementById('landing-map-container'),
     defaultLayers.normal.map, {
-        zoom: 10,
+        zoom: 12,
         center: {
-            lat: 13.4,
-            lng: 52.51
+            lat: 32.77,
+            lng: -117.07
         }
     });
 
+console.log(landingMap)
