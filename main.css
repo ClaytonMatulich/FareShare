@@ -71,19 +71,24 @@
     color: black;
 
 }
+
+#main-tools-container {
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: row;
+}
 #map-container {
-    width: 100%;
+    width: 75%;
     height: 100%;
-    position: relative;
+    
 }
 #search-fields-container {
     width: 25%;
     height: 100%;
+    /* background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%); */
     background-color: white;
-    position: absolute;
-    left: 0;
-    z-index: 100;
-    background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
+    
     
 }
 #close-inputs-container {
@@ -120,7 +125,7 @@
     margin-left: 10%;
     opacity: 0.75;
 }
-form{
+#form{
     width: 100%;
     height: 80%;
     display: flex;
