@@ -109,18 +109,7 @@ position: relative;
     
     
 }
-#close-icon {
-    width: 37px;
-    height: 37px;
-    margin-right: 5%;
-    background-image: url(images/icons/close.png);
-    background-size: cover;
-    cursor: pointer;
-    transition: ease 0.4s;
-}
-#close-icon:hover{
-    transform: scale(1.15)
-}
+
 
 
 #search-fields-title {
