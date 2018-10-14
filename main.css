@@ -174,6 +174,31 @@ form{
     color: white;
 }
 
+#geolocation {
+    position: absolute;
+    top: 100px;
+    right: 7px;
+    width: auto;
+    height: 20px;
+    background-color: #1f262a;
+    border-radius: 22px;
+    color: #fff;
+    padding: 6px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+#geolocation:hover {
+    color: #1f262a;
+    background-color: white;
+    border: 1px solid #1f262a;
+}
+.active {
+    color: #1f262a !important;
+    background-color: white !important;
+    border: 1px solid #1f262a !important;
+}
+
 
 
 

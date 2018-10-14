@@ -16,38 +16,42 @@
     <script src="http://js.api.here.com/v3/3.0/mapsjs-places.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="main.js"></script>
-    
+
+    <link rel="stylesheet" type="text/css" href="http://js.api.here.com/v3/3.0/mapsjs-ui.css" />
+
 </head>
 
 <body>
-    <script src="pannableMap.js"></script>
+
+    <!-- <script src="pannableMap.js"></script> -->
     <div id="wrapper">
-            <div id="main-banner">
-                <div id="name">FareShare</div>
-                <label for="">Search your destination and share the fare ... fairly</label>
-                <a href="#map-container" id="begin-button">Begin</a>
-            </div>
-            <div id="map-container">
-                    
-                    <div id="search-fields-container">
-                    <div id="close-inputs-container">
-                        <div id="close-icon"></div>
-                    </div>
-                        <div id="search-fields-title">Let's Get Started</div>
-                        <form action="">
-                            <input id="start" class="inputs" type="text" placeholder="Start">
-                            <input id="destination" class="inputs" type="text" placeholder="Destination">
-                            <input id="carMake" class="inputs" type="text" placeholder="Car Make">
-                            <input id="carModel" class="inputs" type="text" placeholder="Car Model">
-                            <input id="carYear" class="inputs" type="text" placeholder="Year">
-                            <input id="numPassengers" class="inputs" type="text" placeholder="Number of Passengers">
-                            <div id="calculate-button-container">
-                            <button id="calculate-button" onclick="gatherData()">Let's Go!</button>
-                            </div>
-                        </form>
+        <div id="main-banner">
+            <div id="name">FareShare</div>
+            <label for="">Search your destination and share the fare ... fairly</label>
+            <a href="#map-container" id="begin-button">Begin</a>
+        </div>
+
+        <div id="map-container">
+            <div id="geolocation">Geolocation</div>
+            <div id="search-fields-container">
+                <div id="close-inputs-container">
+                    <div id="close-icon"></div>
                 </div>
+                <div id="search-fields-title">Let's Get Started</div>
+                <form action="">
+                    <input id="start" class="inputs" type="text" placeholder="Start">
+                    <input id="destination" class="inputs" type="text" placeholder="Destination">
+                    <input id="carMake" class="inputs" type="text" placeholder="Car Make">
+                    <input id="carModel" class="inputs" type="text" placeholder="Car Model">
+                    <input id="carYear" class="inputs" type="text" placeholder="Year">
+                    <input id="numPassengers" class="inputs" type="text" placeholder="Number of Passengers">
+                    <div id="calculate-button-container">
+                        <button id="calculate-button" onclick="gatherData()">Let's Go!</button>
+                    </div>
+                </form>
             </div>
-            
+        </div>
+    </div>
     <script src="app.js"></script>
 </body>
 
