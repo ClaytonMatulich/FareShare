@@ -117,11 +117,11 @@ function getTotalDistance(){
 
 function getTotalCost(){
     //alert(typeof (tripDistance / getMpg()) * 3.20);
-    return totalCosts = (tripDistance / getMpg()) * 3.20;
+    return totalCosts = (tripDistance / getMpg()) * 3.60;
 }
 
 function getTotalCostPerPerson(){
-    var totalCosts = (tripDistance / getMpg()) * 3.20;
+    var totalCosts = (tripDistance / getMpg()) * 3.60;
     return totalCosts / numPassengers;
 }
 
