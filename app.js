@@ -130,10 +130,12 @@ function prepareResults(){
 }
 
 function displayResults(){
-    document.getElementById("total-distance").innerHTML = +getTotalDistance().toFixed(2);
+    document.getElementById("start-result").innerHTML = start;
+    document.getElementById("destination-result").innerHTML = destination;
+    document.getElementById("total-distance").innerHTML = +getTotalDistance().toFixed(2) + 'mi';
     document.getElementById("number-of-passengers").innerHTML = numPassengers;
-    document.getElementById("total-trip-cost").innerHTML = +getTotalCost().toFixed(2);
-    document.getElementById("cost-per-person").innerHTML = +getTotalCostPerPerson().toFixed(2);
+    document.getElementById("total-trip-cost").innerHTML = '$' + +getTotalCost().toFixed(2);
+    document.getElementById("cost-per-person").innerHTML = '$' + +getTotalCostPerPerson().toFixed(2);
 }
 
 function removeObjectById(id){
