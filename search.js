@@ -40,7 +40,7 @@ $('#carYear').autocomplete({
     hint: false
 }, [{
     source: $.fn.autocomplete.sources.hits(index, {
-        hitsPerPage: 2
+        hitsPerPage: 1
     }),
     displayKey: 'year',
     templates: {
@@ -51,3 +51,7 @@ $('#carYear').autocomplete({
         }
     }
 }]);
+
+let getMpg = function() {
+    return mpg;
+}
