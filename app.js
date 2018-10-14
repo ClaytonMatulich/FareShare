@@ -136,11 +136,19 @@ function displayResults(){
     document.getElementById("cost-per-person").innerHTML = +getTotalCostPerPerson().toFixed(2);
 }
 
-
+function removeObjectById(id){
+    for (object of map.getObjects()){
+     if (object.id===id){
+         map.removeObject(object);
+         }
+     }
+ }
 
 function drawMap() {
   calculateRouteFromAtoB(platform);
 }
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -176,6 +184,7 @@ function onSuccess(result) {
     tripDistance = tripSummary.distance / 1609.344;
     console.log(tripDistance)
     prepareResults();
+    
 
 
     /*
@@ -285,6 +294,7 @@ function addRouteShapeToMap(route) {
     }
   });
   // Add the polyline to the map
+  polyline.id = "route";
   map.addObject(polyline);
   // And zoom to its bounding rectangle
   map.setViewBounds(polyline.getBounds(), true);
@@ -335,6 +345,7 @@ function addManueversToMap(route) {
   }, false);
 
   // Add the maneuvers group to the map
+  group.id = "route";
   map.addObject(group);
 }
 
