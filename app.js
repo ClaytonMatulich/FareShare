@@ -41,7 +41,7 @@ function gatherData() {
     // console.log(destinationLatitude);
     // console.log(destinationLongitude);
     drawMap();
-    
+    //prepareResults();
   });
   
 }
@@ -110,11 +110,36 @@ function getLongitude(data){
     return data.Response.View[0].Result[0].Location.NavigationPosition[0].Longitude.toString();
 }
 
+function getTotalDistance(){
+    //alert(tripDistance)
+    return tripDistance;
+}
+
+function getTotalCost(){
+    //alert(typeof (tripDistance / getMpg()) * 3.20);
+    return totalCosts = (tripDistance / getMpg()) * 3.20;
+}
+
+function getTotalCostPerPerson(){
+    var totalCosts = (tripDistance / getMpg()) * 3.20;
+    return totalCosts / numPassengers;
+}
+
+function prepareResults(){
+    displayResults();
+}
+
+function displayResults(){
+    document.getElementById("total-distance").innerHTML = +getTotalDistance().toFixed(2);
+    document.getElementById("number-of-passengers").innerHTML = numPassengers;
+    document.getElementById("total-trip-cost").innerHTML = +getTotalCost().toFixed(2);
+    document.getElementById("cost-per-person").innerHTML = +getTotalCostPerPerson().toFixed(2);
+}
+
 
 
 function drawMap() {
   calculateRouteFromAtoB(platform);
-  
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -150,6 +175,7 @@ function onSuccess(result) {
     console.log(tripSummary);
     tripDistance = tripSummary.distance / 1609.344;
     console.log(tripDistance)
+    prepareResults();
 
 
     /*
