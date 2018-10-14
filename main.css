@@ -1,9 +1,8 @@
 * {
     margin: 0;
 }
-body{
-    
-}
+
+body {}
 
 #wrapper {
     width: 100vw;
@@ -76,18 +75,36 @@ body{
 }
 
 #main-tools-container {
-width: 100%;
-height: 100%;
-position: relative;
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
-#results-container{
+
+#results-container {
     width: 25%;
     height: 100%;
-    background-color: black;
     transition: ease 0.75s;
     position: absolute;
     left: -30%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+
 }
+
+.result-labels {
+    width: 90%;
+    height: 10%;
+    margin-left: 5%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: normal;
+}
+
 
 #search-fields-container {
     width: 25%;
@@ -97,17 +114,18 @@ position: relative;
     transition: ease 0.75s;
     position: absolute;
     left: 0;
-    
-    
+
+
 }
+
 #close-inputs-container {
     width: 100%;
-    height:10%;
+    height: 10%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    
-    
+
+
 }
 
 
@@ -124,7 +142,8 @@ position: relative;
     opacity: 0.75;
 
 }
-#form{
+
+#form {
     width: 100%;
     height: 80%;
     display: flex;
@@ -144,10 +163,10 @@ position: relative;
     border-bottom: solid black 1px;
     outline: 0;
     padding-left: 2%;
-    
+
 }
 
-::placeholder{
+::placeholder {
     font-size: 20px;
     color: black;
     opacity: 0.6;
@@ -160,6 +179,7 @@ position: relative;
     justify-content: center;
     align-items: center;
 }
+
 #calculate-button {
     width: 45%;
     height: 40%;
@@ -174,6 +194,7 @@ position: relative;
     cursor: pointer;
 
 }
+
 #calculate-button:hover {
     background-color: black;
     color: white;
@@ -185,6 +206,7 @@ position: relative;
     position: absolute;
     right: 0;
 }
+
 #geolocation {
     position: absolute;
     bottom: 5%;
@@ -211,12 +233,9 @@ position: relative;
 #geolocation:hover {
     transform: scale(1.13)
 }
+
 .active {
     color: #1f262a !important;
     background-color: white !important;
     border: 1px solid #1f262a !important;
 }
-
-
-
-
