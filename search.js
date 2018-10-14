@@ -24,7 +24,7 @@ $('#carModel').autocomplete({
     hint: false
 }, [{
     source: $.fn.autocomplete.sources.hits(index, {
-        hitsPerPage: 2
+        hitsPerPage: 1
     }),
     displayKey: 'model',
     templates: {
