@@ -28,6 +28,8 @@ $(document).ready(function(){
       var inputs = document.getElementById("search-fields-container");
       inputs.style.left = '-30%';
       showResults();
+      var mpg = getMpg();
+      console.log("Ooo shieeet we got MPG!!!: " +mpg);
   }
   function showResults(){
       var showResults = document.getElementById("results-container");

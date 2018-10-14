@@ -448,4 +448,7 @@ var onClick = function () {
   }
 };
 
+
+
+
 geoloc.addEventListener('click', onClick);
