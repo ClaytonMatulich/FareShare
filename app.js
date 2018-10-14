@@ -15,6 +15,8 @@ var destinationLatitude;
 var destinationLongitude;
 var startLocationData;
 var destinationLocationData;
+var tripSummary;
+var tripDistance;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -34,11 +36,12 @@ function gatherData() {
     startLongitude = getLongitude(startLocationData);
     destinationLatitude = getLatitude(destinationLocationData);
     destinationLongitude = getLongitude(destinationLocationData);
-    console.log(startLatitude);
-    console.log(startLongitude);
-    console.log(destinationLatitude);
-    console.log(destinationLongitude);
+    // console.log(startLatitude);
+    // console.log(startLongitude);
+    // console.log(destinationLatitude);
+    // console.log(destinationLongitude);
     drawMap();
+    
   });
   
 }
@@ -62,6 +65,7 @@ function getStartLocationData(location){
          
           //lat = data.Response.View[0].Result[0].Location.NavigationPosition[0].Latitude.toString();
           storeStartLocationData(data);
+          return data;
         }
       });
 }
@@ -85,6 +89,7 @@ function getDestinationLocationData(location){
          
           //lat = data.Response.View[0].Result[0].Location.NavigationPosition[0].Latitude.toString();
           storeDestinationLocationData(data);
+          return data;
         }
       });
 }
@@ -110,6 +115,7 @@ function getLongitude(data){
 
 function drawMap() {
   calculateRouteFromAtoB(platform);
+  
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -122,8 +128,8 @@ function calculateRouteFromAtoB(platform) {
       representation: 'display',
       routeattributes: 'waypoints,summary,shape,legs',
       maneuverattributes: 'direction,action',
-      waypoint0: startLatitude + ',' + startLongitude, // SDSU
-      waypoint1: destinationLatitude + ',' + destinationLongitude // Santa Rosa
+      waypoint0: startLatitude + ',' + startLongitude, 
+      waypoint1: destinationLatitude + ',' + destinationLongitude
     };
 
 
@@ -140,19 +146,25 @@ function calculateRouteFromAtoB(platform) {
  * see: http://developer.here.com/rest-apis/documentation/routing/topics/resource-type-calculate-route.html
  */
 function onSuccess(result) {
-  var route = result.response.route[0];
-  /*
-   * The styling of the route response on the map is entirely under the developer's control.
-   * A representitive styling can be found the full JS + HTML code of this example
-   * in the functions below:
-   */
-  addRouteShapeToMap(route);
-  addManueversToMap(route);
+    var route = result.response.route[0];
+    tripSummary = route.summary;  //logs summary of trip chosen
+    console.log(tripSummary);
+    tripDistance = tripSummary.distance / 1609.344;
+    console.log(tripDistance)
 
-  addWaypointsToPanel(route.waypoint);
-  addManueversToPanel(route);
-  addSummaryToPanel(route.summary);
-  // ... etc.
+
+    /*
+    * The styling of the route response on the map is entirely under the developer's control.
+    * A representitive styling can be found the full JS + HTML code of this example
+    * in the functions below:
+    */
+    addRouteShapeToMap(route);
+    addManueversToMap(route);
+
+    addWaypointsToPanel(route.waypoint);
+    addManueversToPanel(route);
+    addSummaryToPanel(route.summary);
+    // ... etc.
 }
 
 /**
@@ -325,6 +337,7 @@ function addWaypointsToPanel(waypoints) {
  * @param {Object} route  A route as received from the H.service.RoutingService
  */
 function addSummaryToPanel(summary) {
+   
   var summaryDiv = document.createElement('div'),
     content = '';
   content += '<b>Total distance</b>: ' + summary.distance + 'm. <br/>';
