@@ -106,7 +106,7 @@
                     <label id="cost-per-person" class="result-labels" for=""></label>
                 </div>
                 <div id="new-trip-button-container" class="results-elements-container">
-                    <div id="new-trip-button">Start New Trip</div>
+                    <div  id="new-trip-button" onclick="hideStuff(); removeObjectById('route')">Start New Trip</div>
                 </div>
             </div>
             <div id="search-fields-container">
@@ -122,7 +122,7 @@
                     <input id="carYear" class="inputs" type="text" placeholder="Year">
                     <input id="numPassengers" class="inputs" type="text" placeholder="Number of Passengers">
                     <div id="calculate-button-container">
-                        <button id="calculate-button" onclick="hideInputs(); gatherData()">Let's Go!</button>
+                        <div id="calculate-button" onclick="hideInputs(); gatherData()">Let's Go!</div>
                     </div>
                 </div>
             </div>

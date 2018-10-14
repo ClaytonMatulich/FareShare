@@ -85,11 +85,15 @@ body {}
     height: 100%;
     transition: ease 0.75s;
     position: absolute;
-    left: -30%;
+    /* transform: translateX(-500px); */
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
+    transition: ease 1s;
+    background-color: white;
+    visibility: hidden;
+    
 
 }
 
@@ -110,10 +114,11 @@ body {}
 .result-titles {
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 26px;
+    font-size: 24px;
     letter-spacing: 2px;
     border-bottom: solid black 1px;
     padding-bottom: 2%;
+    text-transform: uppercase;
 }
 #itenerary {
     font-size: 32px;
@@ -148,6 +153,9 @@ body {}
     letter-spacing: 1px;
     cursor: pointer;
     transition: ease 0.3s;
+    text-decoration: none;
+    color: black;
+
 }
 
 #new-trip-button:hover {
@@ -159,11 +167,11 @@ body {}
 #search-fields-container {
     width: 25%;
     height: 100%;
-    /* background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%); */
-    background-color: white;
-    transition: ease 0.75s;
+    transition: ease 1s;
     position: absolute;
-    left: 0;
+    left: 0%;
+    background-color:white;
+    
 
 
 }
@@ -242,7 +250,9 @@ body {}
     font-size: 16px;
     letter-spacing: 1px;
     cursor: pointer;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #calculate-button:hover {

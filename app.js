@@ -144,6 +144,7 @@ function removeObjectById(id){
          map.removeObject(object);
          }
      }
+     
  }
 
 function drawMap() {

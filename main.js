@@ -24,18 +24,38 @@ $(document).ready(function(){
     });
   });
 
+
+  function showInputs(){
+    //hideResults();
+    var inputs = document.getElementById("search-fields-container");
+    inputs.style.visibility = 'visible';
+    inputs.style.opacity = '1';
+    
+ 
+}
+
   function hideInputs(){
       var inputs = document.getElementById("search-fields-container");
-      inputs.style.left = '-30%';
-      showResults();
+      inputs.style.visibility = 'hidden';
+      inputs.style.opacity = '0';
       var mpg = getMpg();
-      console.log("Ooo shieeet we got MPG!!!: " +mpg);
+      showResults();
+      
+   
   }
   function showResults(){
-      var showResults = document.getElementById("results-container");
-      setInterval(function(){ 
-
-        showResults.style.left = '0';
-       }, 500);
+     //hideInputs();
+      var results = document.getElementById("results-container");
+      results.style.visibility = 'visible';
+      results.style.opacity = '1';
+      
+      
   }
+  function hideStuff(){
+      var resultsContainer = document.getElementById("results-container");
+      resultsContainer.style.visibility = 'hidden';
+      resultsContainer.style.opacity = '0';
+      showInputs();
+      
+    }
 
