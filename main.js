@@ -23,3 +23,17 @@ $(document).ready(function(){
       } // End if
     });
   });
+
+  function hideInputs(){
+      var inputs = document.getElementById("search-fields-container");
+      inputs.style.left = '-30%';
+      showResults();
+  }
+  function showResults(){
+      var showResults = document.getElementById("results-container");
+      setInterval(function(){ 
+
+        showResults.style.left = '0';
+       }, 500);
+  }
+
