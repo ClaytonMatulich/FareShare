@@ -13,6 +13,8 @@ var startLatitude;
 var startLongitude;
 var destinationLatitude;
 var destinationLongitude;
+var startLocationData;
+var destinationLocationData;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -24,42 +26,27 @@ function gatherData() {
   carModel = document.getElementById("carModel").value.trim();
   carYear = document.getElementById("carYear").value.trim();
   numPassengers = document.getElementById("numPassengers").value.trim();
-  startLatitude = getLatitude(start);
-  startLongitude = getLongitude(start);
-  destinationLatitude = getLatitude(destination);
-  destinationLongitude = getLongitude(destination);
-    alert(startLatitude);
-  drawMap();
+  getStartLocationData(start);
+  getDestinationLocationData(destination);
+
+  $( document ).ajaxStop(function() {
+    startLatitude = getLatitude(startLocationData);
+    startLongitude = getLongitude(startLocationData);
+    destinationLatitude = getLatitude(destinationLocationData);
+    destinationLongitude = getLongitude(destinationLocationData);
+    console.log(startLatitude);
+    console.log(startLongitude);
+    console.log(destinationLatitude);
+    console.log(destinationLongitude);
+    drawMap();
+  });
+  
 }
 
-function getLatitude(location){
-    var lat;
-    $.ajax({
-        url: 'https://geocoder.api.here.com/6.2/geocode.json',
-    type: 'GET',
-    dataType: 'jsonp',
-    jsonp: 'jsoncallback',
-    async:false,
-    data: {
-      searchtext: location,
-      app_id: '7SDSJvoRdV0v2xZ0BrAV',
-      app_code: 'WPhUiT2gtYoIBPnzf0VoQg',
-      gen: '9'
-    },
-    success: function (data) {
-      //alert(JSON.stringify(data));
-         
-          lat = data.Response.View[0].Result[0].Location.NavigationPosition[0].Latitude.toString();
-          alert(lat)
-          return lat;
-        }
-      });
+function getStartLocationData(location){
     
-}
-
-function getLongitude(location) {
-  var lon;
-  $.ajax({
+    
+    $.ajax({
     url: 'https://geocoder.api.here.com/6.2/geocode.json',
     type: 'GET',
     dataType: 'jsonp',
@@ -72,12 +59,53 @@ function getLongitude(location) {
     },
     success: function (data) {
       //alert(JSON.stringify(data));
-
-      lon = data.Response.View[0].Result[0].Location.NavigationPosition[0].Longitude.toString();
-      return lon;
-    }
-  });
+         
+          //lat = data.Response.View[0].Result[0].Location.NavigationPosition[0].Latitude.toString();
+          storeStartLocationData(data);
+        }
+      });
 }
+
+function getDestinationLocationData(location){
+    
+    
+    $.ajax({
+    url: 'https://geocoder.api.here.com/6.2/geocode.json',
+    type: 'GET',
+    dataType: 'jsonp',
+    jsonp: 'jsoncallback',
+    data: {
+      searchtext: location,
+      app_id: '7SDSJvoRdV0v2xZ0BrAV',
+      app_code: 'WPhUiT2gtYoIBPnzf0VoQg',
+      gen: '9'
+    },
+    success: function (data) {
+      //alert(JSON.stringify(data));
+         
+          //lat = data.Response.View[0].Result[0].Location.NavigationPosition[0].Latitude.toString();
+          storeDestinationLocationData(data);
+        }
+      });
+}
+
+
+function storeStartLocationData(data){
+    startLocationData = data;
+}
+
+function storeDestinationLocationData(data){
+    destinationLocationData = data;
+}
+
+function getLatitude(data){
+    return data.Response.View[0].Result[0].Location.NavigationPosition[0].Latitude.toString();
+}
+
+function getLongitude(data){
+    return data.Response.View[0].Result[0].Location.NavigationPosition[0].Longitude.toString();
+}
+
 
 
 function drawMap() {
@@ -94,8 +122,8 @@ function calculateRouteFromAtoB(platform) {
       representation: 'display',
       routeattributes: 'waypoints,summary,shape,legs',
       maneuverattributes: 'direction,action',
-      waypoint0: '32.7757,-117.0719', // SDSU
-      waypoint1: '38.4404,-122.7141' // Santa Rosa
+      waypoint0: startLatitude + ',' + startLongitude, // SDSU
+      waypoint1: destinationLatitude + ',' + destinationLongitude // Santa Rosa
     };
 
 
