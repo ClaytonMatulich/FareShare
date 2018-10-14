@@ -1,6 +1,9 @@
 * {
     margin: 0;
 }
+body{
+    
+}
 
 #wrapper {
     width: 100vw;
@@ -78,11 +81,7 @@ height: 100%;
 display: flex;
 flex-direction: row;
 }
-#map-container {
-    width: 75%;
-    height: 100%;
-    
-}
+
 #search-fields-container {
     width: 25%;
     height: 100%;
@@ -179,24 +178,36 @@ flex-direction: row;
     color: white;
 }
 
+#map-container {
+    width: 75%;
+    height: 100%;
+    position: relative;
+}
 #geolocation {
     position: absolute;
-    top: 100px;
-    right: 7px;
-    width: auto;
-    height: 20px;
-    background-color: #1f262a;
-    border-radius: 22px;
-    color: #fff;
+    bottom: 5%;
+    right: 3%;
+    width: 10%;
+    height: 4%;
+    background-color: black;
+    border-radius: 25px;
+    color: white;
     padding: 6px;
     cursor: pointer;
     z-index: 100;
+    transition: ease 0.3s;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+
 #geolocation:hover {
-    color: #1f262a;
-    background-color: white;
-    border: 1px solid #1f262a;
+    transform: scale(1.13)
 }
 .active {
     color: #1f262a !important;
