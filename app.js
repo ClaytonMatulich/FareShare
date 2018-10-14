@@ -1,11 +1,88 @@
 
 
-var to = '32.7757,-117.0719'
-var from = '32.8801,-117.2340'
+var start; 
+var destination;
+var carMake;
+var carModel;
+var carYear;
+var numPassengers;
+var mpg;
+var startLatitude;
+var startLongitude;
+var destinationLatitude;
+var destinationLongitude;
 
-function drawMap(to,from){
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function gatherData(){
+    start = document.getElementById("start").value.trim();
+    destination = document.getElementById("destination").value.trim();
+    carMake = document.getElementById("carMake").value.trim();
+    carModel = document.getElementById("carModel").value.trim();
+    carYear = document.getElementById("carYear").value.trim();
+    numPassengers = document.getElementById("numPassengers").value.trim();
+    startLatitude = getLatitude(start);
+    startLongitude = getLongitude(start);
+    destinationLatitude = getLatitude(destination);
+    destinationLongitude = getLongitude(destination);
+    alert(startLatitude);
+    drawMap();
+}
+
+function getLatitude(location){
+    var lat;
+    $.ajax({
+        url: 'https://geocoder.api.here.com/6.2/geocode.json',
+        type: 'GET',
+        dataType: 'jsonp',
+        jsonp: 'jsoncallback',
+        data: {
+          searchtext: location,
+          app_id: '7SDSJvoRdV0v2xZ0BrAV',
+          app_code: 'WPhUiT2gtYoIBPnzf0VoQg',
+          gen: '9'
+        },
+        success: function (data) {
+          //alert(JSON.stringify(data));
+         
+          lat = data.Response.View[0].Result[0].Location.NavigationPosition[0].Latitude.toString();
+          alert(lat)
+          return lat;
+        }
+      });
+    
+}
+
+function getLongitude(location){
+    var lon;
+    $.ajax({
+        url: 'https://geocoder.api.here.com/6.2/geocode.json',
+        type: 'GET',
+        dataType: 'jsonp',
+        jsonp: 'jsoncallback',
+        data: {
+          searchtext: location,
+          app_id: '7SDSJvoRdV0v2xZ0BrAV',
+          app_code: 'WPhUiT2gtYoIBPnzf0VoQg',
+          gen: '9'
+        },
+        success: function (data) {
+          //alert(JSON.stringify(data));
+         
+          lon = data.Response.View[0].Result[0].Location.NavigationPosition[0].Longitude.toString();
+          return lon;
+        }
+      });
+}
+
+
+function drawMap(){
     calculateRouteFromAtoB (platform);
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 function calculateRouteFromAtoB (platform) {
@@ -15,7 +92,8 @@ function calculateRouteFromAtoB (platform) {
         representation: 'display',
         routeattributes : 'waypoints,summary,shape,legs',
         maneuverattributes: 'direction,action',
-        waypoint0: '32.7757,-117.0719', // SDSU
+        //waypoint0: startLatitude + ',' + startLongitude, // SDSU
+        waypoint0: '38.43,-122.70',
         waypoint1: '38.4404,-122.7141'  // Santa Rosa
       };
   
@@ -272,4 +350,4 @@ function calculateRouteFromAtoB (platform) {
   }
   
   // Now use the map as required...
-  calculateRouteFromAtoB (platform);
+ 

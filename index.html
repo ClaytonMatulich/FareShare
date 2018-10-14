@@ -6,6 +6,7 @@
 
     <title>FareShare</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css?dp-version=1533195059" />
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 
     <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
@@ -13,6 +14,7 @@
     <script src="http://js.api.here.com/v3/3.0/mapsjs-ui.js" type="text/javascript" charset="utf-8"></script>
     <script src="http://js.api.here.com/v3/3.0/mapsjs-mapevents.js" type="text/javascript" charset="utf-8"></script>
     <script src="http://js.api.here.com/v3/3.0/mapsjs-places.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="main.js"></script>
     
 </head>
@@ -33,14 +35,14 @@
                     </div>
                         <div id="search-fields-title">Let's Get Started</div>
                         <form action="">
-                            <input class="inputs" type="text" placeholder="Start">
-                            <input class="inputs" type="text" placeholder="Destination">
-                            <input class="inputs" type="text" placeholder="Car Make">
-                            <input class="inputs" type="text" placeholder="Car Model">
-                            <input class="inputs" type="text" placeholder="Year">
-                            <input class="inputs" type="text" placeholder="Number of Passengers">
+                            <input id="start" class="inputs" type="text" placeholder="Start">
+                            <input id="destination" class="inputs" type="text" placeholder="Destination">
+                            <input id="carMake" class="inputs" type="text" placeholder="Car Make">
+                            <input id="carModel" class="inputs" type="text" placeholder="Car Model">
+                            <input id="carYear" class="inputs" type="text" placeholder="Year">
+                            <input id="numPassengers" class="inputs" type="text" placeholder="Number of Passengers">
                             <div id="calculate-button-container">
-                            <button id="calculate-button">Let's Go!</button>
+                            <button id="calculate-button" onclick="gatherData()">Let's Go!</button>
                             </div>
                         </form>
                 </div>
