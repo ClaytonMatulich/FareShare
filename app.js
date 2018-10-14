@@ -8,7 +8,7 @@ var carMake;
 var carModel;
 var carYear;
 var numPassengers;
-var mpg;
+// var mpg;
 var startLatitude;
 var startLongitude;
 var destinationLatitude;
@@ -24,9 +24,9 @@ var tripDistance;
 function gatherData() {
   start = document.getElementById("start").value.trim();
   destination = document.getElementById("destination").value.trim();
-  carMake = document.getElementById("carMake").value.trim();
-  carModel = document.getElementById("carModel").value.trim();
-  carYear = document.getElementById("carYear").value.trim();
+  carMake = document.getElementById("carMake").value;
+  carModel = document.getElementById("carModel").value;
+  carYear = document.getElementById("carYear").value;
   numPassengers = document.getElementById("numPassengers").value.trim();
   getStartLocationData(start);
   getDestinationLocationData(destination);
@@ -47,8 +47,7 @@ function gatherData() {
 }
 
 function getStartLocationData(location){
-    
-    
+     
     $.ajax({
     url: 'https://geocoder.api.here.com/6.2/geocode.json',
     type: 'GET',
